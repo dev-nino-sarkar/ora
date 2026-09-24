@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "OA Scout",
+    "slug": "oa-scout",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#0F3D5C"
+    },
+    "assetBundlePatterns": [
+      "assets/**/*",
+      "assets/questionnaires/**/*",
+      "assets/i18n/**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.oascout.field",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Camera access is required to scan ArUco markers for joint range-of-motion measurement.",
+        "NSPhotoLibraryUsageDescription": "Photo library access allows you to attach existing medical reports.",
+        "UIBackgroundModes": ["fetch", "processing"]
+      }
+    },
+    "android": {
+      "package": "com.oascout.field",
+      "adaptiveIcon": {
+        "backgroundColor": "#0F3D5C",
+        "foregroundImage": "./assets/adaptive-icon.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.FOREGROUND_SERVICE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-camera",
+      "expo-image-picker",
+      [
+        "expo-background-fetch",
+        {
+          "ios": {
+            "backgroundModes": ["fetch"]
+          }
+        }
+      ],
+      "expo-sqlite",
+      "expo-secure-store"
+    ],
+    "extra": {
+      "apiBaseUrl": "https://api.oa-scout.example.com"
+    }
+  }
+}
